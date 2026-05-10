@@ -1,0 +1,18 @@
+version: '3.8'
+services:
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql_server
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: laboratorios
+    ports:
+      - "3306:3306"
+
+  ingesta-app:
+    build: .
+    container_name: python_ingesta
+    depends_on:
+      - mysql-db
+    environment:
+      DB_HOST: mysql-db # Usas el nombre del servicio como host

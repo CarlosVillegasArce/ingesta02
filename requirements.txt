@@ -1,0 +1,4 @@
+boto3
+pandas
+mysql-connector-python
+sqlalchemy  # Recomendado para que pd.read_sql funcione mejor
